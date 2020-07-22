@@ -1,4 +1,4 @@
-// Initialize Cloud Firestore through Firebase
+// Inicializar Firestore
 firebase.initializeApp({
   apiKey: "AIzaSyDl4VNsS4xy1hq9bL-xeXZZ4wFybLAGYcE",
   authDomain: "proyectohorario-cafc2.firebaseapp.com",
@@ -83,13 +83,11 @@ function modal() {
     showCancelButton: true,
     focusConfirm: false,
     confirmButtonText: '<i class="fa fa-thumbs-up"></i> Great!',
-    confirmButtonAriaLabel: "Thumbs up, great!",
-    cancelButtonText: '<i class="fa fa-thumbs-down"></i>',
+    cancelButtonText: '<i class="fa fa-thumbs-down"></i>'
   });
 }
 
 let cursos = document.getElementById("principal");
-
 db.collection("curso").onSnapshot((querySnapshot) => {
   cursos.innerHTML = " ";
   querySnapshot.forEach((doc) => {
