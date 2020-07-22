@@ -1,8 +1,8 @@
 // Inicializar Firestore
 firebase.initializeApp({
-  apiKey: 'AIzaSyDl4VNsS4xy1hq9bL-xeXZZ4wFybLAGYcE',
-  authDomain: "proyectohorario-cafc2.firebaseapp.com",
-  projectId: 'proyectohorario-cafc2'
+  apiKey: '### FIREBASE API KEY ###',
+  authDomain: '### FIREBASE AUTH DOMAIN ###',
+  projectId: '### CLOUD FIRESTORE PROJECT ID ###'
 });
 
 const db = firebase.firestore();
