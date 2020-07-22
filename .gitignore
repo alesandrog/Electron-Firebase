@@ -1,4 +1,5 @@
 ﻿#directories
 
 node_modules/
-prueba.txt
+actions.js
+main.js
