@@ -29,8 +29,7 @@ function nuevoCurso(){
 
 
 function getNombre(){
-    let nombre = document.getElementById('nombre');
-    return nombre.value;
+    return nombre = document.getElementById('nombre');
 }
 
 function getEnlace(){
