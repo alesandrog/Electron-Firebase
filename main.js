@@ -1,19 +1,25 @@
 const { app, BrowserWindow } = require("electron");
+const shell = require("electron").shell;
+
+
+let win = null;
 
 function createWindow() {
   // Crea la ventana del navegador.
-  const win = new BrowserWindow({
+   win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
       nodeIntegration: true,
+      nativeWindowOpen: true,
+      enableRemoteModule: true
     },
   });
 
   win.loadFile("index.html");
-
   // Abre las herramientas de desarrollo (DevTools).
   win.webContents.openDevTools();
+
 }
 
 app.whenReady().then(createWindow);
@@ -29,3 +35,7 @@ app.on("activate", () => {
     createWindow();
   }
 });
+
+exports.redirectExternal = ( param ) => {
+  shell.openExternal(param);
+};
