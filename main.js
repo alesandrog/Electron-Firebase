@@ -13,7 +13,7 @@ function createWindow() {
   win.loadFile("index.html");
 
   // Abre las herramientas de desarrollo (DevTools).
- // win.webContents.openDevTools();
+  win.webContents.openDevTools();
 }
 
 app.whenReady().then(createWindow);

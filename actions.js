@@ -1,8 +1,8 @@
 // Inicializar Firestore
 firebase.initializeApp({
-  apiKey: 'AIzaSyDl4VNsS4xy1hq9bL-xeXZZ4wFybLAGYcE',
+  apiKey: "AIzaSyDl4VNsS4xy1hq9bL-xeXZZ4wFybLAGYcE",
   authDomain: "proyectohorario-cafc2.firebaseapp.com",
-  projectId: 'proyectohorario-cafc2'
+  projectId: "proyectohorario-cafc2",
 });
 
 const db = firebase.firestore();
@@ -28,22 +28,22 @@ function getNombre() {
 }
 
 function getEnlace() {
-  return enlace = document.getElementById("enlace").value;
+  return (enlace = document.getElementById("enlace").value);
 }
 
 function getInicio() {
-  return inicio = document.getElementById("horaInicio").value;
+  return (inicio = document.getElementById("horaInicio").value);
 }
 
 function getFinal() {
-  return final = document.getElementById("horaFinal").value;
+  return (final = document.getElementById("horaFinal").value);
 }
 
 function modal() {
   Swal.fire({
     title: "<strong>Nuevo Curso</strong>",
     html:
-      '<div class="card" style="width: 95%;">' +
+      '<div class="card" style="width: 100%;">' +
       '<div class="card-body">' +
       '<div class="form-row">' +
       '<div class="form-group col-md-12">' +
@@ -70,42 +70,55 @@ function modal() {
       "</div>" +
       "</div>" +
       '<div class="form-row">' +
-      '<div class="form-group col-md-12">' +      
+      '<div class="form-group col-md-12">' +
       '<button type="submit" class="btn btn-primary" onclick="nuevoCurso()">Guardar</button>' +
       "</div>" +
       "</div>" +
       " </div>" +
       "</div>",
+    showConfirmButton: false,
     showCloseButton: true
   });
 }
 
 let cursos = document.getElementById("principal");
 db.collection("curso").onSnapshot((querySnapshot) => {
+  let i = 0;
+  let anterior = 0;
   cursos.innerHTML = " ";
+  let innerAux = " ";
   querySnapshot.forEach((doc) => {
-    cursos.innerHTML += card(
-      doc.data().nombre,
-      doc.data().horaInicio,
-      doc.data().horaFinal,
-      doc.data().enlace,
-      doc.id
-    );
-    console.log(
-      card(
+    resto = i % 3;
+    if( resto == 0 && i > 0){
+      cursos.innerHTML += '<div class="row mt-2">' + innerAux + '</div>';
+      innerAux = " ";
+      innerAux += card(
         doc.data().nombre,
         doc.data().horaInicio,
         doc.data().horaFinal,
         doc.data().enlace,
         doc.id
-      )
-    );
+      );
+    }else{
+      innerAux += card(
+        doc.data().nombre,
+        doc.data().horaInicio,
+        doc.data().horaFinal,
+        doc.data().enlace,
+        doc.id
+      );
+    }
+    i++;
   });
+  if(innerAux.length > 1 ){
+    cursos.innerHTML += '<div class="row mt-2">' + innerAux + '</div>';
+  }
 });
 
 function card(nombre, hInicio, hFinal, enl, id) {
   let curso =
-    '<div class="card" style="width: 18rem;">' +
+    '<div class="col-sm-4">'+
+    '<div class="card">'+
     '<div class="card-body">' +
     '<h5 class="card-title">' +
     nombre +
@@ -125,7 +138,7 @@ function card(nombre, hInicio, hFinal, enl, id) {
     enl +
     '" class="card-link" >Enlace Meet</a>' +
     "</div>" +
-    "</div>";
+    "</div>" + '</div>';
 
   return curso;
 }
