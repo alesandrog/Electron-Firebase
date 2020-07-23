@@ -117,14 +117,20 @@ db.collection("curso").onSnapshot((querySnapshot) => {
 
 function card(nombre, hInicio, hFinal, enl, id) {
   let curso =
-    '<div class="col-sm-4">'+
+    '<div class="col-md-4">'+
     '<div class="card">'+
-    '<div class="card-body">' +
-    '<h5 class="card-title">' +
-    nombre +
-    "</h5>" +
-    `<button class = "btn btn-danger" onclick="eliminar('${id}')">Eliminar</button>` +
-    '<p class="card-text"></p>' +
+    '<div class="card-body bg-dark" style="color: whitesmoke;">' +
+    '<div class="row">'+
+    '<div class="col-8 ">'+
+      '<h5 class="card-title">'+nombre+'</h5>'+
+    '</div>'+
+    '<div class="col-4 ">'+
+      `<button class="btn btn-danger" onclick="eliminar('${id}')"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">`+
+        '<path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z"/>'+
+        '<path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"/>'+
+      '</svg></button>'+
+    '</div>'+
+  '</div>'+
     "</div>" +
     '<ul class="list-group list-group-flush">' +
     '<li class="list-group-item">' +
@@ -133,10 +139,10 @@ function card(nombre, hInicio, hFinal, enl, id) {
     hFinal +
     "</li>" +
     "</ul>" +
-    '<div class="card-body">' +
+    '<div class="card-body" style="background-color: white;">' +
     '<a href="' +
     enl +
-    '" class="card-link" >Enlace Meet</a>' +
+    '\" class=\"card-link\" >Enlace Meet</a>' +
     "</div>" +
     "</div>" + '</div>';
 
