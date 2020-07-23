@@ -1,8 +1,8 @@
 // Inicializar Firestore
 firebase.initializeApp({
-  apiKey: '### FIREBASE API KEY ###',
-  authDomain: '### FIREBASE AUTH DOMAIN ###',
-  projectId: '### CLOUD FIRESTORE PROJECT ID ###'
+  apiKey: 'AIzaSyDl4VNsS4xy1hq9bL-xeXZZ4wFybLAGYcE',
+  authDomain: "proyectohorario-cafc2.firebaseapp.com",
+  projectId: 'proyectohorario-cafc2'
 });
 
 const db = firebase.firestore();
@@ -41,49 +41,42 @@ function getFinal() {
 
 function modal() {
   Swal.fire({
-    title: "<strong>HTML <u>example</u></strong>",
-    icon: "info",
+    title: "<strong>Nuevo Curso</strong>",
     html:
-      '<div class="card" style="width: 18rem;">' +
+      '<div class="card" style="width: 95%;">' +
       '<div class="card-body">' +
-      '  <h5 class="card-title">Nuevo Curso</h5>' +
       '<div class="form-row">' +
-      '<div class="form-group col-md-6">' +
+      '<div class="form-group col-md-12">' +
       '<label for="nombre">Nombre</label>' +
       '<input type="text" class="form-control" id="nombre">' +
       "</div>" +
       "</div>" +
       '<div class="form-row">' +
-      '<div class="form-group col-md-6">' +
+      '<div class="form-group col-md-12">' +
       '<label for="enlace">Enlace</label>' +
       '<input type="text" class="form-control" id="enlace">' +
       "</div>" +
       "</div>" +
       '<div class="form-row">' +
-      '<div class="form-group col-md-6">' +
+      '<div class="form-group col-md-12">' +
       '<label for="horaInicio">Hora Inicio</label>' +
       '<input type="time" class="form-control" id="horaInicio">' +
       "</div>" +
       "</div>" +
       '<div class="form-row">' +
-      '<div class="form-group col-md-6">' +
+      '<div class="form-group col-md-12">' +
       '<label for="horaFinal">Hora Final</label>' +
       '<input type="time" class="form-control" id="horaFinal">' +
       "</div>" +
       "</div>" +
       '<div class="form-row">' +
+      '<div class="form-group col-md-12">' +      
       '<button type="submit" class="btn btn-primary" onclick="nuevoCurso()">Guardar</button>' +
       "</div>" +
-      '<div class="form-row">' +
-      '<button  class="btn btn-primary" onclick="printNombre()">Print</button>' +
       "</div>" +
       " </div>" +
       "</div>",
-    showCloseButton: true,
-    showCancelButton: true,
-    focusConfirm: false,
-    confirmButtonText: '<i class="fa fa-thumbs-up"></i> Great!',
-    cancelButtonText: '<i class="fa fa-thumbs-down"></i>'
+    showCloseButton: true
   });
 }
 
