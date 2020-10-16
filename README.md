@@ -11,7 +11,6 @@ Firebase [Cloud Firestore](https://firebase.google.com/docs/firestore?hl=es-419)
 
 ## Uso
 
-
 * Copiar el objeto `firebaseConfig` generado para su proyecto dentro del archivo `actions.js`
 ```javascript
 firebase.initializeApp({
